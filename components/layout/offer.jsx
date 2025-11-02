@@ -11,7 +11,7 @@ export default function Offer() {
                Pay nothing until the project is launched and you are 100%
                satisfied.{" "}
                <Link
-                  href='/pricing'
+                  href='/offer'
                   className='underline hover:decoration-red-800 hover:decoration-2 text-red-400'
                >
                   Learn more

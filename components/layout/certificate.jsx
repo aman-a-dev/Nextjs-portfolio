@@ -34,7 +34,7 @@ export default function Certificate() {
    return (
       <div>
          <h1 className='section_heading mb-10'>Certificates</h1>
-         <div className='flex justify-center items-center'>
+         <div className='flex justify-center items-center my-10'>
             <Stack
                randomRotation={true}
                sensitivity={180}

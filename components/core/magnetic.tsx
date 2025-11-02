@@ -61,7 +61,7 @@ export function Magnetic({
     return () => {
       document.removeEventListener('mousemove', calculateDistance);
     };
-  }, [ref, isHovered, intensity, range]);
+  }, [ref, isHovered, intensity, range, x, y]); // Added x and y to dependencies
 
   useEffect(() => {
     if (actionArea === 'parent' && ref.current?.parentElement) {
@@ -80,7 +80,7 @@ export function Magnetic({
     } else if (actionArea === 'global') {
       setIsHovered(true);
     }
-  }, [actionArea]);
+  }, [actionArea]); // Fixed: This was an IIFE, now it's a proper useEffect
 
   const handleMouseEnter = () => {
     if (actionArea === 'self') {
@@ -111,7 +111,7 @@ export function Magnetic({
   );
 }
 
-export function MagneticNested({children}) {
+export function MagneticNested({ children }: { children: React.ReactNode }) {
   const springOptions = { bounce: 0.1 };
 
   return (

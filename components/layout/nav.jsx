@@ -3,11 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import React from "react";
-import Logo from "@/public/brand/logo.svg";
 import { Menu, X, Home, Info, Phone, Banknote, Book } from "lucide-react";
 import { Button } from "@/components/ui/button";
-//import ThemeToggle from "@/components/global/theme-toggle";
 import Icon from "@/components/icon";
+
 const ThemeToggle = dynamic(() => import("@/components/global/theme-toggle"), {
    ssr: false
 });
@@ -16,7 +15,7 @@ const menuItems = [
    { name: "Home", href: "/", icon: <Home /> },
    /*{ name: "About", href: "/about", icon: <Info /> },*/
    { name: "Contact", href: "/contact", icon: <Phone /> },
-   { name: "Offer", href: "/pricing", icon: <Banknote /> },
+   { name: "Offer", href: "/offer", icon: <Banknote /> },
    { name: "Projects", href: "/projects", icon: <Book /> }
 ];
 export default function Nav() {

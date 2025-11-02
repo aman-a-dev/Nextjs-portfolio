@@ -1,4 +1,11 @@
-
+export const metadata = {
+  title: "Services",
+  description:
+    "I offer website development, UI/UX design, API development, and full project execution.",
+  openGraph: {
+    images: "/og-main.png",
+  },
+};
 export default function Pricing() {
    return (
       <div className='my-5 pb-4 ml-4 pl-3 font-mono text-sm text-zinc-500 md:flex justify-center items-center flex-col'>
@@ -26,7 +33,7 @@ export default function Pricing() {
          <p className='max-w-3xl w-[90%]'>
             Our Risk Guarantee I believe a partnership should be built on trust
             and shared success. To that end, I want to assume the risk: · You
-            won't pay the final project balance until you have approved and
+            won&apos;t pay the final project balance until you have approved and
             launched your new website. · You are protected by our 15-Day
             Satisfaction Guarantee. If, after launch, the site does not meet the
             specifications we agreed upon, we will work tirelessly to make it
