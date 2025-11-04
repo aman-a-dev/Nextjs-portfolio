@@ -4,9 +4,7 @@ export const metadata = {
    title: "Contact",
    description:
       "Let's work together — get in touch for project inquiries or collaboration.",
-   openGraph: {
-      images: "/og-main.png"
-   }
+   
 };
 
 export default function Contact() {

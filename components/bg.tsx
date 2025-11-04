@@ -1,4 +1,4 @@
-export default function Bg({ children }) {
+export function Bg({ children }) {
    return (
       <div className='min-h-[30px] w-full relative'>
          {/*  Diagonal Cross Grid Bottom Background */}

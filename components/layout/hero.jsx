@@ -3,23 +3,34 @@ import Image from "next/image";
 import MyImgLight from "@/public/avatar/me-light.png";
 import MyImgDark from "@/public/avatar/me-dark.png";
 import dynamic from "next/dynamic";
+import ClientOnly from "@/components/client-only";
+import TextType from "@/components/text/typing";
+import BasicToast from "@/components/core/toaster";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useTheme } from "next-themes";
 import { TextEffect } from "@/components/text/text-effect";
-import ClientOnly from "@/components/client-only";
 import { MagneticNested } from "@/components/core/magnetic";
 import { SpinningTextBasic } from "@/components/text/spinning-text";
 import { Download } from "lucide-react";
 import { Tilt } from "@/components/core/tilt";
-import TextType from "@/components/text/typing";
+import { useState } from "react";
 
 export default function Hero() {
    const isMobile = useIsMobile();
+   const [showToast, setShowToast] = useState(false);
    const { theme } = useTheme();
 
    return (
       <div className='bg-gray-200 flex flex-col my-5 mx-0 md:flex-row md:justify-around dark:bg-zinc-800 relative overflow-hidden'>
+         {showToast && (
+            <BasicToast
+               message='Downloading the CV.'
+               type={"success"}
+               duration={3000}
+               onClose={() => setShowToast(false)}
+            />
+         )}
          <div className='flex flex-col gap-3 items-start pl-4 pt-5'>
             <h1 className='text-center text-4xl md:text-5xl font-black md:text-start'>
                <TextType
@@ -30,7 +41,11 @@ export default function Hero() {
             <TextEffectWithCustomVariants className='text-1xl text-muted-foreground'>
                Full Stack Web Developer
             </TextEffectWithCustomVariants>
-            <a href='/public/document/aman_cv_v5.pdf' download='MyFile.pdf'>
+            <a
+               href='/document/aman_cv_v5.pdf'
+               download='MyFile.pdf'
+               onClick={() => setShowToast(true)}
+            >
                <MagneticNested>
                   <span>Download CV</span>
                   <Download />

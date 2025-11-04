@@ -1,10 +1,7 @@
 export const metadata = {
-  title: "Services",
-  description:
-    "I offer website development, UI/UX design, API development, and full project execution.",
-  openGraph: {
-    images: "/og-main.png",
-  },
+   title: "Services",
+   description:
+      "I offer website development, UI/UX design, API development, and full project execution."
 };
 export default function Pricing() {
    return (
@@ -26,8 +23,8 @@ export default function Pricing() {
          </ul>
          <h1 className='font-black text-4xl my-4'>How the payment works</h1>
          <p>
-            You pay for me 50% ( when i start building it) 50% on
-            completion ( when I finished and delivered to you).
+            You pay for me 50% ( when i start building it) 50% on completion (
+            when I finished and delivered to you).
          </p>
          <h1 className='font-black text-4xl my-4'>Risks guide</h1>
          <p className='max-w-3xl w-[90%]'>

@@ -5,7 +5,7 @@ import {
    TooltipTrigger,
    TooltipContent
 } from "@/components/ui/tooltip";
-import Bg from "@/components/bg";
+import { Bg } from "@/components/bg";
 const footerLinks = [
    { name: "Telegram", icon: <Send />, href: "https://t.me/aman_a_dev" },
    { name: "Email", icon: <Mail />, href: "mailto:amanuelantenha@gmail.com" },
@@ -21,6 +21,7 @@ export default function Footer() {
    return (
       <Bg>
          <footer className=''>
+
             <div className='ml-5'>
                <h3>
                   About me{" "}

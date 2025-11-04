@@ -3,7 +3,6 @@ import Nav from "@/components/layout/nav";
 import Footer from "@/components/layout/footer";
 import { ThemeProvider } from "next-themes";
 import { mainFont } from "@/components/font";
-import CurrentUrl from "@/components/global/url";
 
 export default function RootLayout({ children }) {
    return (
@@ -20,13 +19,19 @@ export default function RootLayout({ children }) {
 }
 
 export const metadata = {
+   metadataBase: new URL("https://amanadev.vercel.app"),
    title: {
       default: "Amanuel Antenh | Full-Stack Web Developer",
       template: "%s | Amanuel Antenh"
    },
    description:
       "Amanuel Antenh is a full-stack web developer specializing in modern web apps using Next.js, React, Node.js, and Tailwind CSS. Explore my portfolio and services.",
-   authors: [{ name: "Amanuel Antenh", url: "https://your-domain.com" }],
+   authors: [
+      {
+         name: "Amanuel Antenh",
+         url: "https://amanadev.vercel.app"
+      }
+   ],
    keywords: [
       "Amanuel Antenh",
       "Full stack developer",
@@ -52,7 +57,7 @@ export const metadata = {
    openGraph: {
       type: "website",
       locale: "en_US",
-      url: CurrentUrl,
+      url: "/",
       title: "Amanuel Antenh | Full-Stack Web Developer",
       description:
          "Explore the portfolio and projects of Amanuel Antenh, a skilled full-stack developer using Next.js, React, Node.js, and Tailwind CSS.",

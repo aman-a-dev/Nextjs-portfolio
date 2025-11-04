@@ -10,9 +10,7 @@ export const metadata = {
   title: "Home",
   description:
     "Welcome to my portfolio. I build modern full-stack apps using Next.js, React, and Node.js.",
-  openGraph: {
-    images: "/og-main.png",
-  },
+  
 };
 export default function Home() {
    return (

@@ -4,9 +4,7 @@ export const metadata = {
    title: "Projects",
    description:
       "Selected real-world projects I’ve built — from web apps to complex full-stack systems.",
-   openGraph: {
-      images: "/og-main.png"
-   }
+   
 };
 export default function Projects() {
    return (

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { BorderTrail } from "@/components/core/border-trail";
 import { useState } from "react";
 import axios from "axios";
+import { AnimatePresence } from "motion/react";
+import BasicToast from "@/components/core/toaster";
 
 export default function ContactComp() {
    const [form, setForm] = useState({
@@ -44,6 +46,7 @@ export default function ContactComp() {
       if (errors.length > 0) {
          setError(errors.join(" "));
          setLoading(false);
+         
          return;
       }
 
@@ -66,13 +69,9 @@ export default function ContactComp() {
    return (
       <div className='my-10'>
          <h1 className='section_heading'>Contact</h1>
-         {error && (
-            <p className='text-red-300 text-center dark:text-red-400 text-sm mt-2 mx-5'>
-               {error}
-            </p>
-         )}
+         {error && <BasicToast message={error} duration={5000} type='error' />}
          {success && (
-            <p className='text-green-500 text-sm mt-2 text-center'>{success}</p>
+            <BasicToast message={success} duration={5000} type='success' />
          )}
          <div className='flex items-center justify-center'>
             <form
