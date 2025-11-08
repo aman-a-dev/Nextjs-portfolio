@@ -3,41 +3,34 @@ import twilio from "twilio";
 
 export async function POST(request) {
    try {
-      const body = await request.json();
-      const { name, email, message } = body;
+      const { name, email, message } = await request.json();
 
-      if (!name || !email || !message) {
-         return NextResponse.json({
-            success: false,
-            msg: "Missing required fields ❌️"
-         });
-      }
+      const client = twilio(
+         process.env.TWILIO_ACCOUNT_SID,
+         process.env.TWILIO_AUTH_TOKEN
+      );
 
-      // Initialize Twilio client
-      const accountSid = process.env.TWILIO_ACCOUNT_SID;
-      const authToken = process.env.TWILIO_AUTH_TOKEN;
-      const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
-      const yourPhoneNumber = process.env.YOUR_PHONE_NUMBER;
-
-      const client = twilio(accountSid, authToken);
-
-      // ✅ Send SMS through Twilio
       await client.messages.create({
-         body: `📩 New Message from Portfolio:\n\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${message}`,
-         from: twilioPhoneNumber,
-         to: yourPhoneNumber
+         messagingServiceSid: process.env.TWILIO_MESSAGING_SERVICE_SID,
+         to: process.env.YOUR_PHONE_NUMBER,
+         body: `
+📩 Portfolio Message
+👤 Name: ${name}
+📧 Email: ${email}
+💬 Message: ${message}
+         `
       });
 
-      return NextResponse.json({
-         success: true,
-         msg: "Message sent successfully ✅️"
-      });
+      return NextResponse.json(
+         { success: true },
+         { status: 200 }
+      );
    } catch (error) {
-      console.error("Twilio Error:", error);
-      return NextResponse.json({
-         success: false,
-         msg: `Server error: ${error.message || "Unknown error"} ❌️`
-      });
+      console.error("❌ Twilio Error:", error);
+      return NextResponse.json(
+         { success: false, msg: "Server error occurred" },
+         { status: 500 }
+      );
    }
 }
 

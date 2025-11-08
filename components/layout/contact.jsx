@@ -46,7 +46,7 @@ export default function ContactComp() {
       if (errors.length > 0) {
          setError(errors.join(" "));
          setLoading(false);
-         
+
          return;
       }
 
@@ -69,9 +69,18 @@ export default function ContactComp() {
    return (
       <div className='my-10'>
          <h1 className='section_heading'>Contact</h1>
-         {error && <BasicToast message={error} duration={5000} type='error' />}
+         {error && (
+            <BasicToast
+               message={error}
+               duration={5000}
+               type='error'
+               className='w-max'
+            />
+         )}
          {success && (
-            <BasicToast message={success} duration={5000} type='success' />
+            <BasicToast 
+               className='w-max'
+            message={success} duration={5000} type='success' />
          )}
          <div className='flex items-center justify-center'>
             <form
